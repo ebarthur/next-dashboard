@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -9,18 +9,18 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Phone } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Phone } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 const FormSchema = z.object({
   phone_number: z.string().min(10, {
-    message: "Phone number must be at least 10 characters.",
+    message: 'Phone number must be at least 10 characters.',
   }),
 });
 
@@ -30,7 +30,7 @@ function PhoneSignUp() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      phone_number: "",
+      phone_number: '',
     },
   });
 
@@ -48,7 +48,7 @@ function PhoneSignUp() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full my-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="my-6 w-full">
         <FormField
           control={form.control}
           name="phone_number"

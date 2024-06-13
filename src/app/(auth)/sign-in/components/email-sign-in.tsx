@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
   Form,
   FormControl,
@@ -9,22 +9,22 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail } from "lucide-react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { z } from "zod";
-import { useRouter } from "next/navigation";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Mail } from 'lucide-react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+import { z } from 'zod';
+import { useRouter } from 'next/navigation';
 
 const FormSchema = z.object({
   email: z.string().email({
-    message: "Email is invalid.",
+    message: 'Email is invalid.',
   }),
   password: z.string().min(8, {
-    message: "Password must be at least 8 characters.",
+    message: 'Password must be at least 8 characters.',
   }),
 });
 
@@ -36,8 +36,8 @@ function EmailSignIn() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
   });
 
@@ -75,13 +75,13 @@ function EmailSignIn() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input {...field} type={isOpen ? "text" : "password"} />
+                <Input {...field} type={isOpen ? 'text' : 'password'} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <div className="flex items-center space-x-2 mt-5">
+        <div className="mt-5 flex items-center space-x-2">
           <Checkbox id="terms" onClick={() => setIsOpen(!isOpen)} />
           <label
             htmlFor="terms"
@@ -92,8 +92,8 @@ function EmailSignIn() {
         </div>
         <br />
         <Button type="submit" className="w-full items-center gap-3">
-              <Mail />
-              Sign in with Email
+          <Mail />
+          Sign in with Email
         </Button>
       </form>
     </Form>

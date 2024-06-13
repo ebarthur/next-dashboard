@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableCell,
   TableBody,
-  Table
+  Table,
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 
@@ -15,14 +15,12 @@ type UserProps = {
   name: string;
   email: string;
   username: string;
+};
 
-}
-
-export function UsersTable({ users }: { users: UserProps[]}) {
-
+export function UsersTable({ users }: { users: UserProps[] }) {
   return (
     <>
-      <form className="border shadow-sm rounded-lg">
+      <form className="rounded-lg border shadow-sm">
         <Table>
           <TableHeader>
             <TableRow>
@@ -43,7 +41,7 @@ export function UsersTable({ users }: { users: UserProps[]}) {
   );
 }
 
-function UserRow({ user }: { user: UserProps}) {
+function UserRow({ user }: { user: UserProps }) {
   const userId = user.id;
   return (
     <TableRow>
@@ -52,7 +50,7 @@ function UserRow({ user }: { user: UserProps}) {
       <TableCell>{user.username}</TableCell>
       <TableCell>
         <Button
-          className="w-full hover:bg-red-700 hover:text-white transition ease-out"
+          className="w-full transition ease-out hover:bg-red-700 hover:text-white"
           size="sm"
           variant="outline"
           disabled

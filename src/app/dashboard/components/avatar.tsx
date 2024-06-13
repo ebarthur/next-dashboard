@@ -1,14 +1,13 @@
-import React from "react";
+import React from 'react';
 import Avatar from 'boring-avatars';
 
 type User = {
-  username: any
-}
+  username: any;
+};
 
-export const UserProfile = ({user}: {user: User}) => {
+export const UserProfile = ({ user }: { user: User }) => {
   return (
     <div>
-
       <Avatar
         size={30}
         name={user.username}
