@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { GeistSans } from 'geist/font/sans';
-import { ThemeProvider } from "@/components/providers/theme-providers";
+import { Inter } from "next/font/google";
+import "../globals.css";
+import Navbar from "@/app/(landing-page)/navbar";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,8 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={GeistSans.className}>
+    <html lang="en">
+      <body className={inter.className}>
+      <Navbar/>
       {children}
       </body>
     </html>
